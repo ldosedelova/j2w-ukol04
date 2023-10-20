@@ -9,17 +9,23 @@
     [#list seznam as vizitka]
     <a href="/detail/${vizitka?index}">
         <div class="vizitka">
-            <div class="jmeno">Dita (Přikrylová) Formánková</div>
-            <div class="firma">Czechitas z. s.</div>
+            <div class="jmeno">${vizitka.jmeno}</div>
+            <div class="firma">${vizitka.firma}</div>
             <div class="udaje">
                 <div class="adresa">
-                    <div>Václavské náměstí 837/11</div>
-                    <div><span>11000</span> Praha 1</div>
+                    <div>${vizitka.ulice}</div>
+                    <div>${vizitka.obecPsc}</div>
                 </div>
                 <div class="kontakty">
-                    <div><i class="bi bi-at"></i> dita@example.com</div>
-                    <div><i class="bi bi-phone"></i> +420 800123456</div>
-                    <div><i class="bi bi-globe"></i> www.czechitas.cz</div>
+                    [#if vizitka.email??]
+                    <div><i class="bi bi-at"></i> ${vizitka.email}</div>
+                    [/#if]
+                    [#if vizitka.telefon??]
+                    <div><i class="bi bi-phone"></i> ${vizitka.telefon}</div>
+                    [/#if]
+                    [#if vizitka.web??]
+                    <div><i class="bi bi-globe"></i> ${vizitka.web}</div>
+                    [/#if]
                 </div>
             </div>
         </div>
