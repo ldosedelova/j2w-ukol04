@@ -87,7 +87,15 @@ public class VizitkaService {
     return seznamVizitek.get(id);
   }
 
-  public void append(Vizitka vizitka) { seznamVizitek.add(vizitka);
+  public void append(Vizitka vizitka) {
+      seznamVizitek.add(vizitka);
+      if (vizitka.getEmail().equals("")) {
+          vizitka.setEmail(null);
+      } if (vizitka.getTelefon().equals("")) {
+          vizitka.setTelefon(null);
+      } if (vizitka.getWeb().equals("")) {
+          vizitka.setWeb(null);
+      }
   }
 
   public void deleteById(int id){ seznamVizitek.remove(id);}
